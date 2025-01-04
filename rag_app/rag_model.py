@@ -21,7 +21,7 @@ class RagChain:
     def load_vector_db(self) -> FAISS:
         embeddings = OpenAIEmbeddings(api_key=self.OPENAI_API_KEY)
         vector_db = FAISS.load_local(
-            "faiss_index", embeddings, allow_dangerous_deserialization=True
+            "./faiss_index", embeddings, allow_dangerous_deserialization=True
         )
         return vector_db
 
