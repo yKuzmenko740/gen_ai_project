@@ -44,5 +44,4 @@ for idx, (user, message) in enumerate(reversed(st.session_state["history"])):
     else:
         st.markdown(f"<div style='text-align: left;'><b>CT:</b> {message}</div>", unsafe_allow_html=True)
 
-# Horizontal line for separation
 st.markdown("---")
