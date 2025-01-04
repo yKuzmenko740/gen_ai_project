@@ -8,6 +8,10 @@ from langchain.chains import create_history_aware_retriever, create_retrieval_ch
 from langchain_core.runnables.base import RunnableBinding
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
+import pathlib 
+
+FAISS_INDEX_PATH = pathlib.Path("faiss_index")
+
 
 class RagChain:
     def __init__(self, api_key:str):
@@ -21,7 +25,7 @@ class RagChain:
     def load_vector_db(self) -> FAISS:
         embeddings = OpenAIEmbeddings(api_key=self.OPENAI_API_KEY)
         vector_db = FAISS.load_local(
-            "./faiss_index", embeddings, allow_dangerous_deserialization=True
+            str(FAISS_INDEX_PATH), embeddings, allow_dangerous_deserialization=True
         )
         return vector_db
 
