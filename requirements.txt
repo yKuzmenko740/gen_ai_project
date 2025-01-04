@@ -1,7 +1,7 @@
 backports.tarfile
 datasets
 eval-type-backport
-faiss-cpu
+faiss-cpu==1.7.4
 httptools
 ipykernel
 jaraco.collections
