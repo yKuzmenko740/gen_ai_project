@@ -1,0 +1,16 @@
+backports.tarfile
+datasets
+eval-type-backport
+faiss-cpu
+httptools
+ipykernel
+jaraco.collections
+jsonpath-python
+langchain-experimental
+langchain-openai
+matplotlib
+scipy
+streamlit
+tomli
+watchfiles
+websockets
