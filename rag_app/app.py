@@ -2,7 +2,8 @@ import streamlit as st
 from chat_model import ChatBot
 
 # Initialize chatbot instance
-chat_bot = ChatBot()
+API_KEY = st.secrets["OPENAI_API_KEY"]
+chat_bot = ChatBot(str(API_KEY))
 
 # Page header with improved styling
 st.markdown(

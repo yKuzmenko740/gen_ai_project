@@ -5,8 +5,9 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 
 
 class ChatBot:
-    def __init__(self):
+    def __init__(self, api_key:str):
         self.store = {}
+        self.api_key = api_key
         self.conversational_rag_chain = self.create_conversational_rag_chain()
 
     def get_session_history(self, session_id: str) -> BaseChatMessageHistory:
@@ -15,7 +16,7 @@ class ChatBot:
         return self.store[session_id]
 
     def create_conversational_rag_chain(self) -> RunnableWithMessageHistory:
-        rag_chain = RagChain().get_rag_chain()
+        rag_chain = RagChain(self.api_key).get_rag_chain()
         return RunnableWithMessageHistory(
             rag_chain,
             self.get_session_history,

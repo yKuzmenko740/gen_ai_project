@@ -10,9 +10,9 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 
 
 class RagChain:
-    def __init__(self):
+    def __init__(self, api_key:str):
         load_dotenv()
-        self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+        self.OPENAI_API_KEY = api_key
         self.vector_db = self.load_vector_db()
         self.llm = self.initialize_llm_model()
         self.history_aware_retriever = self.initialize_history_aware_retriever()
