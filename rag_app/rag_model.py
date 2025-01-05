@@ -39,7 +39,7 @@ class RagChain:
         contextualize_q_system_prompt = (
             "Given a chat history and the latest user input "
             "which might reference context in the chat history, "
-            "formulate a standalone input which can be understood "
+            "formulate a standalone question which can be understood "
             "without the chat history. Do NOT answer the user input, "
             "just reformulate it if needed and otherwise return it as is."
         )
@@ -57,10 +57,15 @@ class RagChain:
 
     def initialize_question_answer_chain(self) -> RunnableBinding:
         system_prompt = (
-            "You are a helpful and creative recipe generator. "
-            "User gives you their products and their preferences. You can add products to complete the recipe. "
-            "If you don't know the recipe of the dish, don't suggest it. "
-            "You can ONLY give cooking-related advice. If a user asks something that is not related to cooking: Sorry, I can't reply to that. "
+           " You are a helpful and creative recipe generator assistant. Your primary role is to assist users in creating recipes based on the ingredients they provide and their stated preferences (if any)."
+            "\n"
+            "Guidelines for Interaction:"
+            " - You may suggest additional ingredients only if they are necessary to complete the recipe."
+            " - Only suggest recipes if you are confident in their accuracy. Do not provide guesses or unverified information about dishes."
+            " - Stay strictly within the domain of cooking. If a user asks something unrelated to cooking or your functionality, politely respond with:"
+            "'I'm sorry, I can't help with that. I'm a cooking assistant, and I specialize in recipe creation and cooking advice.'"
+            "\n"
+            "Maintain a friendly, professional tone, and prioritize providing accurate and creative cooking assistance."
             "Use the following pieces of retrieved context to answer "
             "the user prompt.\n\n"
             "{context}"
