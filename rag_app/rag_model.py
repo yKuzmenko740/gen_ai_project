@@ -10,7 +10,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 
 from pathlib import Path
 
-FAISS_INDEX_PATH = str(Path().absolute()) + "./faiss_index"
+FAISS_INDEX_PATH = str(Path().absolute()) + "rag_app/faiss_index"
 
 
 class RagChain:
