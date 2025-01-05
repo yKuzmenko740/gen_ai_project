@@ -8,9 +8,9 @@ from langchain.chains import create_history_aware_retriever, create_retrieval_ch
 from langchain_core.runnables.base import RunnableBinding
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
-import pathlib 
+from pathlib import Path
 
-FAISS_INDEX_PATH = pathlib.Path("faiss_index")
+FAISS_INDEX_PATH = str(Path().absolute()) + "./faiss_index"
 
 
 class RagChain:
