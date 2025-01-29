@@ -11,6 +11,14 @@ st.markdown(
     <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
         <h1 style="color: #4CAF50; font-size: 36px;">Recipe Generator 🍔</h1>
     </div>
+    <p style="text-align: center; font-size: 18px;">I am Remy, AI-powered recipe assistant that can help you create delicious recipes based on the ingredients you have. 
+    Simply enter your ingredients and preferences, and get personalized cooking suggestions!</p>
+    <h3 style="text-align: center; color: #6C757D;">Try one of these sample prompts:</h3>
+    <ul style="text-align: center; list-style-type: none; padding-left: 0;">
+        <li>👉 "What can I cook with chicken, tomatoes, and garlic?"</li>
+        <li>👉 "Give me a vegetarian pasta recipe."</li>
+        <li>👉 "How do I bake a chocolate cake?"</li>
+    </ul>
     """,
     unsafe_allow_html=True,
 )
@@ -42,6 +50,6 @@ for idx, (user, message) in enumerate(reversed(st.session_state["history"])):
     if user == "You":
         st.markdown(f"<div style='text-align: right;'><b>You:</b> {message}</div>", unsafe_allow_html=True)
     else:
-        st.markdown(f"<div style='text-align: left;'><b>CT:</b> {message}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: left;'><b>Remy:</b> {message}</div>", unsafe_allow_html=True)
 
 st.markdown("---")

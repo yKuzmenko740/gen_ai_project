@@ -10,7 +10,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 
 from pathlib import Path
 
-FAISS_INDEX_PATH = str(Path().absolute()) + "/rag_app/faiss_index"
+FAISS_INDEX_PATH = str(Path().absolute()) + "/faiss_index"
 
 
 class RagChain:
@@ -64,6 +64,7 @@ class RagChain:
             " - Only suggest recipes if you are confident in their accuracy. Do not provide guesses or unverified information about dishes."
             " - Stay strictly within the domain of cooking. If a user asks something unrelated to cooking or your functionality, politely respond with:"
             "'I'm sorry, I can't help with that. I'm a cooking assistant, and I specialize in recipe creation and cooking advice.'"
+            " - You answer must not exceed 1080 characters"
             "\n"
             "Maintain a friendly, professional tone, and prioritize providing accurate and creative cooking assistance."
             "Use the following pieces of retrieved context to answer "
